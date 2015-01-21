@@ -6,19 +6,27 @@
   <label for="description">Description of the task:</label>
   <input id="description" name="description" type="text">
 
+  <label for="due_date">Due Date:</label>
+  <input id="due_date" name="due_date" type="text">
+
   <button type="submit">Add task</button>
 </form>
 
 <% if @list.tasks().any?() %>
-<h3>Here are all the tasks in this list:</h3>
-
-<ul>
-  <% @list.tasks().each() do |task| %>
-  <li><%= task.description() %></li>
-  <% end %>
-</ul>
+  <h3>Here are all the tasks in this list:</h3>
+<% @list.tasks().each() do |task| %>
+  <table class='table table-bordered'>
+    <tr class='active'>
+      <th> Task </th>
+      <th> Due Date </th>
+    </tr>
+    <tr>
+      <td> <%= task.description() %> </td>
+      <td> <%= task.due_date() %> </td>
+    </tr>
+  </table>
+<% end %>
 <% else %>
 <p>There are no tasks yet!</p>
 <% end %>
-
 <a href="/">Return to Main Page</a>
