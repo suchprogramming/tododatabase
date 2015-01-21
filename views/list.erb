@@ -9,7 +9,7 @@
   <label for="due_date">Due Date:</label>
   <input id="due_date" name="due_date" type="text">
 
-  <button type="submit">Add task</button>
+  <button type="submit" class="btn btn-success">Add Task</button>
 </form>
 
 <% if @list.tasks().any?() %>
@@ -29,4 +29,4 @@
 <% else %>
 <p>There are no tasks yet!</p>
 <% end %>
-<a href="/">Return to Main Page</a>
+<a class="btn btn-info" href="/" role="button">Back</a>

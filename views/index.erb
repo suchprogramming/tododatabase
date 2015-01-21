@@ -2,21 +2,23 @@
 
 <p>Create a new list:</p>
 
+
 <form action="/lists" method="post">
+  <div class="form-group">
   <label for="name">Assign a name to your list:</label>
-  <input id="name" name="name" type="text">
-
-  <button type="submit">Add list</button>
+  <input id="name" name="name" type="text" class="form-control">
+    <br>
+  <button type="submit" class="btn btn-success">Add List</button>
 </form>
-
+<br></br>
 <% if @lists.any?() %>
 <p>Click on a list to see its tasks:</p>
-
-<ul>
+<br>
+<div class="list-group">
   <% @lists.each do |list| %>
-  <li><a href="/lists/<%= list.id() %>"><%= list.name() %></a></li>
+    <a href="/lists/<%= list.id() %>" class="list-group-item"> <%= list.name() %></a>
   <% end %>
-</ul>
+</div>
 <% else %>
 <p>There are no lists yet!</p>
 <% end %>
